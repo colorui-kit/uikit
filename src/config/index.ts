@@ -1,0 +1,1 @@
+export const COLORUI_URL = `https://color-ui.js.cool`
