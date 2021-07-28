@@ -10,6 +10,6 @@ export default new vuex.Store({
   mutations,
   getters,
   plugins: [
-    persistedstate()
+    // persistedstate()
   ]
 })

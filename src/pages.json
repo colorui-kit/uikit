@@ -22,6 +22,9 @@
     "style": {
       "width": "240px",
 			"background": "#333"
+    },
+		"matchMedia": {
+      "minWidth": 768
     }
   },
 	"globalStyle": {

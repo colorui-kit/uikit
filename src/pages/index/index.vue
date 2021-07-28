@@ -13,8 +13,14 @@
 				</view>
 				<MonacoEditor class="editor" :theme="codeTheme" v-model="code" language="html" />
 				<view class="margin-top-lg">
-					<button class="cu-btn shadow round bg-blue padding-left-lg padding-right-lg margin-right-sm" @tap="handleCopyCode">一键复制代码</button>
-					<button class="cu-btn shadow round bg-green padding-left-lg padding-right-lg" @tap="codeThemeDark = !codeThemeDark">{{ !codeThemeDark ? `暗色` : `亮色` }}</button>
+					<button class="cu-btn shadow round bg-blue padding-left-lg padding-right-lg margin-right-sm" @tap="handleCopyCode">
+						<text class="cuIcon-copy margin-right-xs"></text>
+						<text>一键复制代码</text>
+					</button>
+					<button class="cu-btn shadow round bg-green padding-left-lg padding-right-lg" @tap="codeThemeDark = !codeThemeDark">
+						<text class="cuIcon-skin margin-right-xs"></text>
+						<text>{{ !codeThemeDark ? `暗色` : `亮色` }}</text>
+					</button>
 				</view>
 			</view>
 		</view>

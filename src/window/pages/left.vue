@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import menu from '../menu'
 import { GET_HUMAN_CURRENT_PAGE_ROUTE } from '@/store/namespace'
 export default {
@@ -26,6 +26,9 @@ export default {
     ...mapGetters([
       GET_HUMAN_CURRENT_PAGE_ROUTE
     ]),
+    ...mapState([
+      'sidebarHasOpen'
+    ]),
     menuMap() {
       const current = this[GET_HUMAN_CURRENT_PAGE_ROUTE]
       const menu = this.menu
@@ -35,6 +38,20 @@ export default {
         item['rightClass'] = [ `cuIcon-${ !!item['children'] ? 'unfold' : 'right' }` ]
         return item
       })
+    }
+  },
+  watch: {
+    sidebarHasOpen(newVal) {
+      try {
+        const leftWindow = Array.from(document.getElementsByTagName('uni-left-window'))
+        if (!leftWindow.length) return
+        const _window = leftWindow[0]
+        _window.style['margin-left'] = (!newVal ? 0 : -240) + `px`
+        _window.style['opacity'] = newVal ? 0 : 1
+        _window.style['transition'] = `all .3s`
+      } catch (error) {
+        console.error(error)
+      }
     }
   },
   methods: {
